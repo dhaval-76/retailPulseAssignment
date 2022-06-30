@@ -6,4 +6,5 @@ export default {
   textPrimary: '#000000',
   textSecondary: '#4A4A4A',
   error: '#C81515',
+  white: '#FFFFFF',
 };
