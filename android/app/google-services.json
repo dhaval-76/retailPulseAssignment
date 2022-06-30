@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "203721058194",
+    "project_id": "retail-pulse-assignment-1b2b9",
+    "storage_bucket": "retail-pulse-assignment-1b2b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203721058194:android:a94d2e79b92c8be865434b",
+        "android_client_info": {
+          "package_name": "com.retailpulseassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203721058194-ab7m46hfhmr2mdq5u7s5mhan1l3epf48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz4eqDU3e-aXO-OqYc5dycb7PmBZo7k_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203721058194-ab7m46hfhmr2mdq5u7s5mhan1l3epf48.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
