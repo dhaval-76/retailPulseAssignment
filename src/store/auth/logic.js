@@ -8,7 +8,7 @@ const loginLogic = createLogic({
 
   async process({action}, dispatch, done) {
     try {
-      const {username, password} = action.payload;
+      const {username} = action.payload;
 
       dispatch(loginSuccess(username));
     } catch (err) {
