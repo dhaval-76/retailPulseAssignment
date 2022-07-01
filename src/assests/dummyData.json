@@ -1,0 +1,51 @@
+[
+  {
+    "outlet_name": "outlet 1",
+    "outlet_code": "1234",
+    "town_name": "mumbai",
+    "town_code": "mumbai1",
+    "route_name": "route1",
+    "route_code": "1234",
+    "outlet_id": 3,
+    "programs": [
+      {
+        "id": 1,
+        "image_url": "dove"
+      },
+      {
+        "id": 2,
+        "image_url": "lifebuoy"
+      }
+    ]
+  },
+  {
+    "outlet_name": "outlet 2",
+    "outlet_code": "4321",
+    "town_name": "mumbai",
+    "town_code": "mumbai1",
+    "route_name": "route1",
+    "route_code": "1234",
+    "outlet_id": 3,
+    "programs": [
+      {
+        "id": 1,
+        "image_url": "dove"
+      }
+    ]
+  },
+  {
+    "outlet_name": "outlet 3",
+    "outlet_code": "1234",
+    "town_name": "mumbai",
+    "town_code": "mumbai1",
+    "route_name": "route1",
+    "route_code": "1234",
+    "outlet_id": 3,
+    "programs": [
+      {
+        "id": 1,
+        "image_url": "lifebuoy"
+      }
+    ]
+  }
+]

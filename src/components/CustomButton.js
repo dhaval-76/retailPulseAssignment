@@ -7,15 +7,16 @@ const CustomButton = ({disabled = false, onPress = () => {}, label = ''}) => {
   if (disabled) {
     return (
       <View style={[styles.container, {backgroundColor: colors.disabled}]}>
-        <Text style={styles.labelTxt}>Login</Text>
+        <Text style={styles.labelTxt}>{label}</Text>
       </View>
     );
   }
 
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[styles.container, {backgroundColor: colors.secondary}]}>
-      <Text style={styles.labelTxt}>Login</Text>
+      <Text style={styles.labelTxt}>{label}</Text>
     </TouchableOpacity>
   );
 };

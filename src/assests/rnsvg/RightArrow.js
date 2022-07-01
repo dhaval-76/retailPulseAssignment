@@ -4,7 +4,7 @@ import Svg, {Path} from 'react-native-svg';
 
 import colors from '../../constant/colors';
 
-const RightArrow = ({color = colors.disabled, size = 26}) => {
+const RightArrow = ({color = colors.white, size = 26}) => {
   const height = (24 / 26) * size;
   const width = size;
 

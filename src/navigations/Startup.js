@@ -9,6 +9,7 @@ import Login from '../screens/Login';
 import {errorSelector, isAuthenticatedSelector} from '../store/auth/selector';
 import {removeError} from '../store/auth/slice';
 import SearchOutlet from '../screens/SearchOutlet';
+import OutletDetail from '../screens/OutletDetail';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,7 @@ export default function Startup() {
         ) : (
           <>
             <Stack.Screen name="SearchOutlet" component={SearchOutlet} />
+            <Stack.Screen name="OutletDetail" component={OutletDetail} />
           </>
         )}
       </Stack.Navigator>
