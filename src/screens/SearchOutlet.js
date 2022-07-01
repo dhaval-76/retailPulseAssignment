@@ -46,7 +46,7 @@ const SearchOutlet = ({navigation}) => {
   };
 
   useEffect(() => {
-    // outletRef.current.focus();
+    outletRef.current.focus();
 
     return () => dispatch(outletRemoveError());
   }, [dispatch]);

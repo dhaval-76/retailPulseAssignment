@@ -17,7 +17,6 @@ const InputWithButton = React.forwardRef((props, ref) => {
     setFieldTouched,
     onPress,
   } = props;
-  console.log({error, value});
 
   const hasError = value === '' || error;
 

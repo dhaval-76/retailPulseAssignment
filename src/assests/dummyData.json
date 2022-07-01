@@ -6,7 +6,7 @@
     "town_code": "mumbai1",
     "route_name": "route1",
     "route_code": "1234",
-    "outlet_id": 3,
+    "outlet_id": 1,
     "programs": [
       {
         "id": 1,
@@ -25,7 +25,7 @@
     "town_code": "mumbai1",
     "route_name": "route1",
     "route_code": "1234",
-    "outlet_id": 3,
+    "outlet_id": 2,
     "programs": [
       {
         "id": 1,
