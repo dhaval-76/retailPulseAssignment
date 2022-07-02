@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import DoneJSON from './done.json';
 
-const DoneLottie = ({width = 180, height = 140}) => {
+const DoneLottie = ({width = 120, height = 100}) => {
   return (
     <View style={{width, height}}>
       <AnimatedLottieView source={DoneJSON} autoPlay loop />

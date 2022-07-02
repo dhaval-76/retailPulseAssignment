@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
   },
   textInput: {
+    flex: 1,
     fontSize: 16,
     color: colors.textPrimary,
   },

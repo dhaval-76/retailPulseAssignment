@@ -15,15 +15,22 @@ import mime from 'mime';
 import moment from 'moment';
 
 import UploadImageContainer from '../components/UploadImageContainer';
+import CustomButton from '../components/CustomButton';
+import UploadModal from '../components/UploadModal';
 
 import RNSvgIcon from '../assests/rnsvg/RNSvgIcon';
 import colors from '../constant/colors';
-import CustomButton from '../components/CustomButton';
+import uploadFile from '../utils/uploadFile';
+import byteConversion from '../utils/byteConversion';
 
 const VisitOutlet = ({route, navigation}) => {
   const {outlet} = route.params;
 
   const [selectedImages, setSelectedImages] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [uploadedImagesData, setuploadedImagesData] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const onBackPress = useCallback(() => {
     navigation.goBack();
@@ -47,6 +54,7 @@ const VisitOutlet = ({route, navigation}) => {
         quality: 1,
       });
 
+      // eslint-disable-next-line curly
       if (imageRes.didCancel) return;
 
       const imageUri = imageRes.assets[0].uri;
@@ -54,7 +62,7 @@ const VisitOutlet = ({route, navigation}) => {
       let fileName = imageRes.assets[0].fileName.split('.');
 
       fileName =
-        fileName[0] + moment().format('__YYYYMMD__hhmmss.') + fileName[1];
+        fileName[0] + moment().format('--YYYYMMD--hhmmss.') + fileName[1];
 
       const imgObj = {
         id,
@@ -62,7 +70,7 @@ const VisitOutlet = ({route, navigation}) => {
         fileName,
         type: mime.getType(imageUri),
         uri: imageUri,
-        size: imageRes.assets[0].fileSize,
+        size: byteConversion(imageRes.assets[0].fileSize),
       };
 
       setSelectedImages(prev => [...prev, imgObj]);
@@ -71,8 +79,37 @@ const VisitOutlet = ({route, navigation}) => {
     }
   };
 
+  const progressListener = specificProgress => {
+    setProgress(
+      prevProgress =>
+        prevProgress + specificProgress / (2 * selectedImages.length),
+    );
+  };
+
+  const uploadedDataListener = uploadedData => {
+    setuploadedImagesData(prev => [...prev, uploadedData]);
+  };
+
+  const errorListener = error => {
+    console.log({message: 'Error in Upload', error});
+  };
+
   const uploadPhotos = () => {
-    console.log(selectedImages);
+    setIsModalVisible(true);
+    for (const image of selectedImages) {
+      uploadFile({
+        fileUri: image.uri,
+        refString: `${outlet.outlet_code}--${image.id}/${image.fileName}`,
+        progressListener,
+        uploadedDataListener,
+        errorListener,
+      });
+    }
+  };
+
+  const onDonePress = () => {
+    setIsModalVisible(false);
+    navigation.navigate('SearchOutlet');
   };
 
   return (
@@ -100,8 +137,19 @@ const VisitOutlet = ({route, navigation}) => {
       />
 
       <View style={styles.marHor}>
-        <CustomButton label="Upload Photos" onPress={uploadPhotos} />
+        <CustomButton
+          label="Upload Photos"
+          onPress={uploadPhotos}
+          disabled={selectedImages.length !== outlet.programs.length}
+        />
       </View>
+
+      <UploadModal
+        imagesData={selectedImages}
+        isModalVisible={isModalVisible}
+        onDonePress={onDonePress}
+        progress={progress}
+      />
     </SafeAreaView>
   );
 };
