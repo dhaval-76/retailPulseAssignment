@@ -27,7 +27,9 @@ const UploadModal = ({isModalVisible, onDonePress, imagesData, progress}) => {
                 <View style={styles.percentageConatiner}>
                   <PercentageLoader progress={progress} />
                   <View style={styles.percentage}>
-                    <Text style={styles.percentageTxt}>{progress} %</Text>
+                    <Text style={styles.percentageTxt}>
+                      {progress.toFixed(2)} %
+                    </Text>
                     <Text style={styles.uploadedTxt}>Uploaded</Text>
                   </View>
                 </View>
